@@ -24,7 +24,7 @@ public class NonogramDAO {
     @Column(name = "id")
     private Long id;
     @Column(name = "size")
-    private int size;
+    private Integer size;
     @Column(name = "solution")
     private List<Boolean> solution;
     @Column(name = "art")

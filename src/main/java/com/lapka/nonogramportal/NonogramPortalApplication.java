@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class NonogramportalApplication {
+public class NonogramPortalApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(NonogramportalApplication.class, args);
+		SpringApplication.run(NonogramPortalApplication.class, args);
 	}
 
 }

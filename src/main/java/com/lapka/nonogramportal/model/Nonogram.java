@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 public class Nonogram {
     private Long id;
-    private int size;
+    private Integer size;
     private List<Boolean> solution;
     private List<String> art;
 }
