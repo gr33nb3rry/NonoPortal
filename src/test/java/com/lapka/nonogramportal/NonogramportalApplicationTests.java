@@ -1,4 +1,4 @@
-package com.bluebuba.nonogramportal;
+package com.lapka.nonogramportal;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

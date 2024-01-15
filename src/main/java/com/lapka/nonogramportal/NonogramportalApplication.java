@@ -1,4 +1,4 @@
-package com.bluebuba.nonogramportal;
+package com.lapka.nonogramportal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
