@@ -40,9 +40,7 @@ const PixelArtDrawingPage = () => {
         defineDifficulty(gridArea, size);
     }, []);
     const handleSendDrawing = useCallback((gridColor, gridArea, size) => {
-        console.log(gridColor);
-        console.log(gridArea);
-        console.log(size);
+        sendData(gridColor, gridArea, size);
     }, []);
 
     const gridStyles = {
@@ -180,3 +178,32 @@ const hasAtLeastOneTrueInRowsAndColumns = (grid2DArray) => {
 
     return true;
 };
+
+function sendData(gridColor, gridArea, size) {
+    const url = 'http://localhost:9093/api/v1/nonogram';
+    let username = 'lapka';
+    let password = 'zalapka';
+    let auth = btoa(`${username}:${password}`);
+
+    const requestBody = JSON.stringify(
+        {
+            size: size,
+            solution: gridArea,
+            art: gridColor
+        }
+    )
+    console.log(requestBody);
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Basic ${auth}`
+        },
+        body: requestBody
+    })
+    .then(response => response.text())
+    .then((text) => {
+        console.log(text);
+    })
+    .catch(err => console.error(err));
+}
