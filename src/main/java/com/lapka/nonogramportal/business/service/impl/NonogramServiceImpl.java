@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+
 @Service
 public class NonogramServiceImpl implements NonogramService {
     private final NonogramRepository repository;
@@ -24,9 +25,12 @@ public class NonogramServiceImpl implements NonogramService {
     }
 
     @Override
-    public List<Nonogram> getAllNonograms() {
-
-        return null;
+    public ResponseEntity<List<Nonogram>> getAllNonograms() {
+        List<NonogramDAO> nonogramDAOs = repository.findAll();
+        List<Nonogram> nonograms = nonogramDAOs.stream()
+                .map(mapper::nonogramDaoToNonogram)
+                .toList();
+        return new ResponseEntity<>(nonograms, HttpStatus.OK);
     }
 
     @Override

@@ -4,12 +4,10 @@ import com.lapka.nonogramportal.business.service.NonogramService;
 import com.lapka.nonogramportal.model.Nonogram;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/nonogram")
@@ -18,6 +16,12 @@ public class NonogramController {
     @Autowired
     public NonogramController(NonogramService service) {
         this.service = service;
+    }
+
+    @ResponseStatus(value = HttpStatus.OK)
+    @GetMapping
+    public ResponseEntity<List<Nonogram>> getAllNonograms() {
+        return service.getAllNonograms();
     }
 
     @ResponseStatus(value = HttpStatus.OK)

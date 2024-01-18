@@ -6,6 +6,6 @@ import org.springframework.http.ResponseEntity;
 import java.util.List;
 
 public interface NonogramService {
-    public List<Nonogram> getAllNonograms();
+    public ResponseEntity<List<Nonogram>> getAllNonograms();
     public ResponseEntity<Nonogram> saveNewNonogram(Nonogram nonogram);
 }
