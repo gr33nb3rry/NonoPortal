@@ -39,6 +39,11 @@ const PixelArtDrawingPage = () => {
     const handleCheckDrawing = useCallback((gridArea, size) => {
         defineDifficulty(gridArea, size);
     }, []);
+    const handleSendDrawing = useCallback((gridColor, gridArea, size) => {
+        console.log(gridColor);
+        console.log(gridArea);
+        console.log(size);
+    }, []);
 
     const gridStyles = {
         display: 'grid',
@@ -96,6 +101,15 @@ const PixelArtDrawingPage = () => {
                 }}
                 onClick={() => handleCheckDrawing(gridArea, gridSize)}>
                 Check
+            </button>
+            <button
+                style={{
+                    backgroundColor: 'white',
+                    width: '60px',
+                    height: '40px',
+                }}
+                onClick={() => handleSendDrawing(grid, gridArea, gridSize)}>
+                Send
             </button>
             <div className="color-buttons">
                 {colors.map((color, index) => (
