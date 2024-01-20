@@ -16,6 +16,12 @@
   cursor: pointer;
 }
 
+.list-grid-cell {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
 .grid-cell.filled {
   background-color: #000;
 }
