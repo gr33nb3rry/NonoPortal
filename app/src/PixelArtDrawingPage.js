@@ -121,17 +121,7 @@ const PixelArtDrawingPage = () => {
                     </button>
                 ))}
             </div>
-            {selectedColor}
-            <br />
-            {grid}
-            <div className="grid-display">
-                {gridArea.map((cell, index) => (
-                    <span key={index} className={`grid-cell-display ${cell ? 'filled' : ''}`}>
-                        {cell ? '1' : '0'}
-                        {(index + 1) % gridSize === 0 && <br />} {/* Перевод строки после каждых 5 клеток */}
-                    </span>
-                ))}
-            </div>
+
         </div>
     );
 };

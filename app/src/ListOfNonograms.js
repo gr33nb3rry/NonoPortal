@@ -30,16 +30,35 @@ const ListOfNonograms = () => {
         handleRefresh();
     }, [handleRefresh]);
 
+    const cellSize = 20;
     const listGridStyles = (size) => {
         return {
             display: 'grid',
             //opacity: 0.5,
-            gridTemplateColumns: `repeat(${size}, ${20 * (size/5)}px)`
+            gridTemplateColumns: `repeat(${size}, ${cellSize * (size/5)}px)`
         }
     };
+    const listGridCell = (color) => {
+        return {
+            width: `${cellSize}px`,
+            height: `${cellSize}px`,
+            backgroundColor: color,
+            cursor: 'pointer'
+        }
+    }
 
     return (
         <div>
+            <button
+                style={{
+                    backgroundColor: 'white',
+                    width: '60px',
+                    height: '40px',
+                }}
+                onClick={handleRefresh}
+            >
+                Refresh
+            </button>
             <div className="list-container">
                 {nonograms.map((nonogram, index) => (
                     <div className="nonogram" key={index} style={{ display: 'flex', gap: '5px' }}>
@@ -50,8 +69,7 @@ const ListOfNonograms = () => {
                             {nonogram.art.map((cell, index) => (
                                 <div
                                     key={index}
-                                    className={`list-grid-cell`}
-                                    style={{ backgroundColor: colors[cell] }}
+                                    style={listGridCell(colors[cell])}
                                 />
                             ))}
                         </div>
@@ -67,16 +85,6 @@ const ListOfNonograms = () => {
                     </div>
                 ))}
             </div>
-            <button
-                style={{
-                    backgroundColor: 'white',
-                    width: '60px',
-                    height: '40px',
-                }}
-                onClick={handleRefresh}
-            >
-                Refresh
-            </button>
         </div>
     );
 };
