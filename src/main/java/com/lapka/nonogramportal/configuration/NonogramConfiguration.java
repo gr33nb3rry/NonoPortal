@@ -26,6 +26,7 @@ public class NonogramConfiguration {
             .csrf(AbstractHttpConfigurer::disable)
             .httpBasic(Customizer.withDefaults());
 
+
         return security.build();
     }
 
